@@ -1,0 +1,55 @@
+**************************** MapReducing Genetic Algorithms ***********************
+
+Author: Abhishek Verma (verma7@illinois.edu)
+
+This package contains the source code for MapReducing Simple and Compact Genetic
+Algorithms.
+
+For details, please read: 
+1) Abhishek Verma, Xavier Llorà David E. Goldberg and Roy H. Campbell, "Scaling Genetic Algorithms using MapReduce". Ninth International Conference on Intelligent Systems Design and Applications (ISDA), pp.13-18, Pisa, Italy, Nov, 2009. (http://verma7.com/pdfs/ISDA09_MR_GA.pdf)
+2) Abhishek Verma, Xavier Llorà Shivaram Venkataram, David E. Goldberg and Roy H. Campbell, "Scaling eCGA Model Building via Data-Intensive Computing". IEEE Congress on Evolutionary Computation (CEC), Barcelona, Spain, July 2010. (http://verma7.com/pdfs/CEC10_MR_ECGA.pdf)
+3) Xavier Llorà Abhishek Verma, Roy H. Campbell, and David E. Goldberg, When Huge is Routine: Scaling Genetic Algorithms and Estimation of Distribution Algorithms via Data-Intensive Computing. Parallel and Distributed Computational Intelligence, Natural Series of Computational Intelligence (SCI) 269, pp. 11-41, Springer Berlin/Heidelberg, 2010. (http://verma7.com/pdfs/Springer10_Meandre.pdf)
+
+Requirement: Hadoop 0.19 or higher (and it's dependencies)
+
+###################################################################################
+You may need to modify the variable "rootDir" in MapReduce.java and CGA.java to
+point to your home directory or some directory on the HDFS that you have read 
+and write permissions on.
+
+To compile the class files and the jar files, run
+
+$ ant compile jar
+
+This will create a build and bin directory for the class files, by compiling 
+against Hadoop 0.19 jar located in the lib directory. Also, it will create 
+ga.jar which MapReduces simple genetic algorithm and cga.jar which 
+MapReduces compact genetic algorithm.
+
+###################################################################################
+To execute, go to the root Hadoop directory and run, 
+
+$ hadoop jar ga.jar <nMaps> <nReducers> <variables> <nIterations> <popTimesNlogN>
+
+where <nMaps> and <nReducers> is the number of mappers and reducers you want to 
+start, <variables> is the size of the ONEMAX problem that this program solves, 
+<nIterations> is the number of iterations you want to run and <popTimesNlogN> sets
+the size of the population to a multiple of n log n, where n is the number of 
+variables.
+
+For example, 
+$ hadoop jar ga.jar 4 4 10000 100 10
+
+###################################################################################
+To run compact genetic algorithm version, do
+
+$ hadoop jar cga.jar <nMaps> <nReducers> <vectorSize> <nIterations> <popTimesNLogN>
+ <tournamentSize> <iter>
+
+where the arguments passed are similar to the previous command, except
+<tournamentSize> is the size of the tournament and <iter> is the iteration number
+you want the algorithm to continue for. 
+
+For example,
+$ hadoop jar cga.jar 4 4 1000 10 10 4 0
+###################################################################################
