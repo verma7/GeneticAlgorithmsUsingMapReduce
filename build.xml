@@ -1,0 +1,39 @@
+<project>
+
+	<target name="clean">
+		<delete file="ga.jar"/>
+		<delete file="cga.jar"/>
+		<delete dir="build/" />
+		<delete dir="bin/" />
+	</target>
+
+	<property name="lib.dir" value="/Users/verma7/hadoop_inc"/>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+	</path>
+
+	<target name="compile">
+		<mkdir dir="build/classes"/>
+		<javac srcdir="src" destdir="build/classes" classpathref="classpath"/>
+	</target>
+
+	<target name="jar">
+		<jar destfile="ga.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="edu.illinois.incr_ga.MapReduce"/>
+			</manifest>
+		</jar>
+		<jar destfile="inc_ga.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="edu.illinois.incr_ga.IncMapReduce"/>
+			</manifest>
+		</jar>
+		<jar destfile="cga.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="edu.illinois.ga.CGA"/>
+			</manifest>
+		</jar>
+	</target>
+
+</project>

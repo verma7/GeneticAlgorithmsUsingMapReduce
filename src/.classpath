@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/build/hadoop-0.21.0-dev-ant.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/build/hadoop-0.21.0-dev-core.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/build/hadoop-0.21.0-dev-examples.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/build/hadoop-0.21.0-dev-test.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/build/hadoop-0.21.0-dev-tools.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop_inc/lib/commons-cli-2.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/Users/verma7/hadoop-0.21.0/hadoop-0.21.0/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
